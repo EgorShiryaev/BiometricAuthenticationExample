@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  biometric_auth_example
+//  BiometricAuth
 //
-//  Created by Shiryaev Egor on 05.10.2022.
+//  Created by Shiryaev Egor on 07.10.2022.
 //
 
 import UIKit
