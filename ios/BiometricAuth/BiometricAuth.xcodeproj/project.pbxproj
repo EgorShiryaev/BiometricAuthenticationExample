@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B4097428F41E8A00F51FC4 /* PinCodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4097328F41E8A00F51FC4 /* PinCodeRepository.swift */; };
+		06B4097628F4651200F51FC4 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4097528F4651200F51FC4 /* HomeScreenController.swift */; };
 		06D8B32D28F01B3A005331A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B32C28F01B3A005331A3 /* AppDelegate.swift */; };
 		06D8B32F28F01B3A005331A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B32E28F01B3A005331A3 /* SceneDelegate.swift */; };
-		06D8B33128F01B3A005331A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B33028F01B3A005331A3 /* ViewController.swift */; };
+		06D8B33128F01B3A005331A3 /* PinCodeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B33028F01B3A005331A3 /* PinCodeScreenController.swift */; };
 		06D8B33428F01B3A005331A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06D8B33228F01B3A005331A3 /* Main.storyboard */; };
 		06D8B33628F01B3A005331A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06D8B33528F01B3A005331A3 /* Assets.xcassets */; };
 		06D8B33928F01B3A005331A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06D8B33728F01B3A005331A3 /* LaunchScreen.storyboard */; };
+		06D8B34628F03E28005331A3 /* PinCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B34528F03E28005331A3 /* PinCodeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06B4097328F41E8A00F51FC4 /* PinCodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeRepository.swift; sourceTree = "<group>"; };
+		06B4097528F4651200F51FC4 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		06D8B32928F01B3A005331A3 /* BiometricAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06D8B32C28F01B3A005331A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06D8B32E28F01B3A005331A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		06D8B33028F01B3A005331A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		06D8B33028F01B3A005331A3 /* PinCodeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeScreenController.swift; sourceTree = "<group>"; };
 		06D8B33328F01B3A005331A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06D8B33528F01B3A005331A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06D8B33828F01B3A005331A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06D8B33A28F01B3A005331A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06D8B34528F03E28005331A3 /* PinCodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinCodeModel.swift; path = ../../../../PinCodeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,32 @@
 			children = (
 				06D8B32C28F01B3A005331A3 /* AppDelegate.swift */,
 				06D8B32E28F01B3A005331A3 /* SceneDelegate.swift */,
-				06D8B33028F01B3A005331A3 /* ViewController.swift */,
+				06D8B34028F01B51005331A3 /* Models */,
+				06D8B34128F01B56005331A3 /* Controllers */,
 				06D8B33228F01B3A005331A3 /* Main.storyboard */,
 				06D8B33528F01B3A005331A3 /* Assets.xcassets */,
 				06D8B33728F01B3A005331A3 /* LaunchScreen.storyboard */,
 				06D8B33A28F01B3A005331A3 /* Info.plist */,
 			);
 			path = BiometricAuth;
+			sourceTree = "<group>";
+		};
+		06D8B34028F01B51005331A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				06D8B34528F03E28005331A3 /* PinCodeModel.swift */,
+				06B4097328F41E8A00F51FC4 /* PinCodeRepository.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		06D8B34128F01B56005331A3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06D8B33028F01B3A005331A3 /* PinCodeScreenController.swift */,
+				06B4097528F4651200F51FC4 /* HomeScreenController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06D8B33128F01B3A005331A3 /* ViewController.swift in Sources */,
+				06D8B34628F03E28005331A3 /* PinCodeModel.swift in Sources */,
+				06B4097428F41E8A00F51FC4 /* PinCodeRepository.swift in Sources */,
+				06B4097628F4651200F51FC4 /* HomeScreenController.swift in Sources */,
+				06D8B33128F01B3A005331A3 /* PinCodeScreenController.swift in Sources */,
 				06D8B32D28F01B3A005331A3 /* AppDelegate.swift in Sources */,
 				06D8B32F28F01B3A005331A3 /* SceneDelegate.swift in Sources */,
 			);
@@ -290,21 +318,24 @@
 				DEVELOPMENT_TEAM = GTNRLBY2GH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BiometricAuth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Biometric Auth";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.biometric-auth.BiometricAuth";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.biometric-auth";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,21 +349,24 @@
 				DEVELOPMENT_TEAM = GTNRLBY2GH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BiometricAuth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Biometric Auth";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.biometric-auth.BiometricAuth";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.biometric-auth";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

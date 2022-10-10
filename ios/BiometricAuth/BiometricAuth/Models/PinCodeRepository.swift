@@ -7,16 +7,22 @@
 
 import UIKit
 
-class SavedPinCodeModel: NSObject {
+class PinCodeRepository: NSObject {
     
     private var pinCode: String?;
     
-    func getSavedPinCode() -> String{
-        if (pin)
-        guard(pinCode == nil) else {return pinCode}
+    func getSavedPinCode() -> String?{
+        if (pinCode != nil){
+            return pinCode
+        }
         pinCode = savedPinCode;
         return savedPinCode;
     }
+    
+    func savePinCode(code: String){
+        pinCode = code;
+        savedPinCode = code;
+    }
 }
 
-let savedPinCode = "1234";
+var savedPinCode:String? = nil;
