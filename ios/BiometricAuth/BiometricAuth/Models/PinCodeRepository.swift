@@ -6,23 +6,18 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+
+let keychainPinCodeKey = "pinCode"
 
 class PinCodeRepository: NSObject {
     
-    private var pinCode: String?;
-    
     func getSavedPinCode() -> String?{
-        if (pinCode != nil){
-            return pinCode
-        }
-        pinCode = savedPinCode;
-        return savedPinCode;
+        return  KeychainWrapper.standard.string(forKey: keychainPinCodeKey);
     }
     
     func savePinCode(code: String){
-        pinCode = code;
-        savedPinCode = code;
+        KeychainWrapper.standard.set(code, forKey: keychainPinCodeKey)
     }
 }
 
-var savedPinCode:String? = nil;
