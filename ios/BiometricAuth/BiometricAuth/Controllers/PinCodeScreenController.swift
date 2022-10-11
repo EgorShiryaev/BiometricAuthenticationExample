@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class PinCodeScreenController: UIViewController {
     
-    let model = PinCodeModel();
+    let pinCodeModel = PinCodeModel();
+    let biometricAuthModel = BiometricAuthModel()
     
     @IBOutlet weak var FirstCharacterImage: UIImageView!
     @IBOutlet weak var SecondCharacterImage: UIImageView!
@@ -36,49 +38,73 @@ class PinCodeScreenController: UIViewController {
         super.viewDidLoad()
         setHelperText()
         hideDeleteButton();
+        setBiometricIcon();
+        if (pinCodeModel.getLockingPinCodeIsSetted() == true){
+            tryBiometricAuth()
+        }
+      
     }
     
     private func setHelperText(){
-        if (model.getLockingPinCodeIsSetted() == true){
+        if (pinCodeModel.getLockingPinCodeIsSetted() == true){
             HelperText.text = "Введите пин-код, чтобы разблокировать"
         } else  {
             HelperText.text = "Введите пин-код, чтобы его установить"
         }
     }
-
+    
+    private func setBiometricIcon(){
+        let biometryType = biometricAuthModel.getBiometricType()
+      
+        if (biometryType == LABiometryType.faceID){
+            let faceIdIconImage = "FaceIdIcon";
+            let image = UIImage(named:faceIdIconImage)
+            BiometricAuthButton.setImage(image, for: UIControl.State.normal)
+        } else if (biometryType == LABiometryType.touchID){
+            let touchIdIconImage = "TouchIdIcon";
+            let image = UIImage(named:touchIdIconImage)
+            BiometricAuthButton.setImage(image, for: UIControl.State.normal)
+        } else if (biometryType == LABiometryType.none){
+            BiometricAuthButton.isHidden = true
+        }
+    }
 
     @IBAction func onPressNumberButton(_ sender: UIButton) {
         let char = sender.titleLabel?.text?.first;
-        let index = model.addPinCodeChar(char:char! )
+        let index = pinCodeModel.addPinCodeChar(char:char! )
         fillCurrentImage(index: index)
         showDeleteButton()
         checkPinCodeIsFullIntroduced()
     }
     
     private func checkPinCodeIsFullIntroduced(){
-        guard (model.getPinCodeLenght() == 4) else {return }
+        guard (pinCodeModel.getPinCodeLenght() == 4) else {return }
         
-        setButtonEnabled(value:false)
+        setButtonEnabled(false)
         
-        if (model.getLockingPinCodeIsSetted() == true){
+        if (pinCodeModel.getLockingPinCodeIsSetted() == true){
             tryAuthorize()
         } else {
             setPinCodeToLock()
         }
-        
+                
         hideDeleteButton();
         clearAllPinCodeImages();
-        setButtonEnabled(value:true)
+
+        setButtonEnabled(true)
     }
     
     private func tryAuthorize(){
-        let success = model.checkPinCodeIsEquals()
+        let success = pinCodeModel.checkPinCodeIsEquals()
         if (success){
             navigateToHomeScreen()
         } else {
-            showAlertMessage()
+            showAlertPinCodeIsWrong()
         }
+        
     }
+    
+  
     
     private func navigateToHomeScreen(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -86,8 +112,8 @@ class PinCodeScreenController: UIViewController {
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
     
-    private func showAlertMessage(){
-        let alertController = UIAlertController(title: "Не правильный пин-код", message: "Попрбуйте еще раз", preferredStyle: .alert);
+    private func showAlertPinCodeIsWrong(){
+        let alertController = UIAlertController(title: "Не правильный пин-код", message: "Попробуйте еще раз", preferredStyle: .alert);
         let action = UIAlertAction(title: "Ок", style: .default);
         alertController.addAction(action)
         
@@ -95,11 +121,20 @@ class PinCodeScreenController: UIViewController {
     }
     
     private func setPinCodeToLock(){
-        model.savePinCode()
+        pinCodeModel.savePinCode()
         setHelperText();
+        showSuccessSetPinCodeToLock()
     }
     
-    private func setButtonEnabled(value:Bool){
+    private func showSuccessSetPinCodeToLock(){
+        let alertController = UIAlertController(title: "Пин-код установлен", message: "Повторно введите пин-код для разблокировки", preferredStyle: .alert);
+        let action = UIAlertAction(title: "Ок", style: .default);
+        alertController.addAction(action)
+        
+        self.present(alertController, animated: true);
+    }
+    
+    private func setButtonEnabled(_ value:Bool){
         let buttons = [
          ButtonOne,
          ButtonTwo,
@@ -157,8 +192,8 @@ class PinCodeScreenController: UIViewController {
     }
     
     @IBAction func onPressDeleteButton(_ sender: UIButton) {
-        model.removeLastPinCodeChar()
-        let pincodeLenght = model.getPinCodeLenght();
+        pinCodeModel.removeLastPinCodeChar()
+        let pincodeLenght = pinCodeModel.getPinCodeLenght();
         clearCurrentImage(index: pincodeLenght)
         if (pincodeLenght == 0){
             hideDeleteButton()
@@ -173,6 +208,26 @@ class PinCodeScreenController: UIViewController {
     private func showDeleteButton(){
         guard (DeleteLastButton.isHidden) else {return}
         DeleteLastButton.isHidden = false
+    }
+    
+    @IBAction func onPressBiometricAuthButton(_ sender: Any) {
+        tryBiometricAuth()
+    }
+    
+    private func tryBiometricAuth(){
+        biometricAuthModel.runBiometricAuth(onSuccess: onSuccessBiometricAuth, onFail: showBiometricError)
+    }
+    
+    private func onSuccessBiometricAuth(){
+        navigateToHomeScreen()
+    }
+    
+    private func showBiometricError(_ error: Error?){
+        let alertController = UIAlertController(title: "Произошла ошибка", message: error?.localizedDescription, preferredStyle: .alert);
+        let action = UIAlertAction(title: "Ок", style: .default);
+        alertController.addAction(action)
+        
+        self.present(alertController, animated: true);
     }
 }
 

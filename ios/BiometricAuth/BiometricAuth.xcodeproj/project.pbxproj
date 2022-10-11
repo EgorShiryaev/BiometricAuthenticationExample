@@ -9,18 +9,22 @@
 /* Begin PBXBuildFile section */
 		06B4097428F41E8A00F51FC4 /* PinCodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4097328F41E8A00F51FC4 /* PinCodeRepository.swift */; };
 		06B4097628F4651200F51FC4 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4097528F4651200F51FC4 /* HomeScreenController.swift */; };
+		06C5337528F54001008BD429 /* PinCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5337428F54001008BD429 /* PinCodeModel.swift */; };
+		06C5337A28F547A9008BD429 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 06C5337928F547A9008BD429 /* SwiftKeychainWrapper */; };
+		06C5337E28F54BD5008BD429 /* BiometricAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5337D28F54BD5008BD429 /* BiometricAuthModel.swift */; };
 		06D8B32D28F01B3A005331A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B32C28F01B3A005331A3 /* AppDelegate.swift */; };
 		06D8B32F28F01B3A005331A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B32E28F01B3A005331A3 /* SceneDelegate.swift */; };
 		06D8B33128F01B3A005331A3 /* PinCodeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B33028F01B3A005331A3 /* PinCodeScreenController.swift */; };
 		06D8B33428F01B3A005331A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06D8B33228F01B3A005331A3 /* Main.storyboard */; };
 		06D8B33628F01B3A005331A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06D8B33528F01B3A005331A3 /* Assets.xcassets */; };
 		06D8B33928F01B3A005331A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06D8B33728F01B3A005331A3 /* LaunchScreen.storyboard */; };
-		06D8B34628F03E28005331A3 /* PinCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8B34528F03E28005331A3 /* PinCodeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06B4097328F41E8A00F51FC4 /* PinCodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeRepository.swift; sourceTree = "<group>"; };
 		06B4097528F4651200F51FC4 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
+		06C5337428F54001008BD429 /* PinCodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeModel.swift; sourceTree = "<group>"; };
+		06C5337D28F54BD5008BD429 /* BiometricAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthModel.swift; sourceTree = "<group>"; };
 		06D8B32928F01B3A005331A3 /* BiometricAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06D8B32C28F01B3A005331A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06D8B32E28F01B3A005331A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +33,6 @@
 		06D8B33528F01B3A005331A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06D8B33828F01B3A005331A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06D8B33A28F01B3A005331A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		06D8B34528F03E28005331A3 /* PinCodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinCodeModel.swift; path = ../../../../PinCodeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C5337A28F547A9008BD429 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,8 +71,8 @@
 				06D8B34028F01B51005331A3 /* Models */,
 				06D8B34128F01B56005331A3 /* Controllers */,
 				06D8B33228F01B3A005331A3 /* Main.storyboard */,
-				06D8B33528F01B3A005331A3 /* Assets.xcassets */,
 				06D8B33728F01B3A005331A3 /* LaunchScreen.storyboard */,
+				06D8B33528F01B3A005331A3 /* Assets.xcassets */,
 				06D8B33A28F01B3A005331A3 /* Info.plist */,
 			);
 			path = BiometricAuth;
@@ -77,8 +81,9 @@
 		06D8B34028F01B51005331A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				06D8B34528F03E28005331A3 /* PinCodeModel.swift */,
+				06C5337428F54001008BD429 /* PinCodeModel.swift */,
 				06B4097328F41E8A00F51FC4 /* PinCodeRepository.swift */,
+				06C5337D28F54BD5008BD429 /* BiometricAuthModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +113,9 @@
 			dependencies = (
 			);
 			name = BiometricAuth;
+			packageProductDependencies = (
+				06C5337928F547A9008BD429 /* SwiftKeychainWrapper */,
+			);
 			productName = BiometricAuth;
 			productReference = 06D8B32928F01B3A005331A3 /* BiometricAuth.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +144,9 @@
 				Base,
 			);
 			mainGroup = 06D8B32028F01B3A005331A3;
+			packageReferences = (
+				06C5337828F547A9008BD429 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+			);
 			productRefGroup = 06D8B32A28F01B3A005331A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -163,7 +174,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06D8B34628F03E28005331A3 /* PinCodeModel.swift in Sources */,
+				06C5337528F54001008BD429 /* PinCodeModel.swift in Sources */,
+				06C5337E28F54BD5008BD429 /* BiometricAuthModel.swift in Sources */,
 				06B4097428F41E8A00F51FC4 /* PinCodeRepository.swift in Sources */,
 				06B4097628F4651200F51FC4 /* HomeScreenController.swift in Sources */,
 				06D8B33128F01B3A005331A3 /* PinCodeScreenController.swift in Sources */,
@@ -392,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		06C5337828F547A9008BD429 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		06C5337928F547A9008BD429 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06C5337828F547A9008BD429 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 06D8B32128F01B3A005331A3 /* Project object */;
 }
