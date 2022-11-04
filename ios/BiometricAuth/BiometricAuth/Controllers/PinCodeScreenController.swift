@@ -97,6 +97,7 @@ class PinCodeScreenController: UIViewController {
     private func tryAuthorize(){
         let success = pinCodeModel.checkPinCodeIsEquals()
         if (success){
+            tryCount = 0;
             navigateToHomeScreen()
         } else {
             showAlertPinCodeIsWrong()
@@ -220,12 +221,27 @@ class PinCodeScreenController: UIViewController {
     
     private func onSuccessBiometricAuth(){
         navigateToHomeScreen()
+        tryCount = 0;
     }
     
-    private func showBiometricError(_ error: Error?){
-        let alertController = UIAlertController(title: "Произошла ошибка", message: error?.localizedDescription, preferredStyle: .alert);
-        let action = UIAlertAction(title: "Ок", style: .default);
-        alertController.addAction(action)
+    var tryCount = 0;
+    
+    private func showBiometricError(_ description : String, _ canTryAgain: Bool){
+        let alertController = UIAlertController(title: "Ошибка", message: description, preferredStyle: .alert);
+        if (canTryAgain && tryCount < 2){
+            let tryAgainAction = UIAlertAction(title: "Повторить попытку", style: .default) { action in
+                self.tryBiometricAuth()
+                self.tryCount += 1;
+            }
+            alertController.addAction(tryAgainAction)
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel);
+            alertController.addAction(cancelAction)
+           
+        } else {
+            let action = UIAlertAction(title: "Ок", style: .default);
+            alertController.addAction(action)
+            tryCount = 0;
+        }
         
         self.present(alertController, animated: true);
     }
