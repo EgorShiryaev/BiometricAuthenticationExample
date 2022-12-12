@@ -1,4 +1,4 @@
-package com.example.biometric_auth_examplr;
+package com.example.biometricauthexample;
 
 import org.junit.Test;
 
