@@ -18,7 +18,8 @@ class BiometricAuthModel: NSObject {
     let context = LAContext()
     
     func getBiometricType()->LABiometryType{
-        let _ = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+        
+        let result = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
         return context.biometryType
     }
     
